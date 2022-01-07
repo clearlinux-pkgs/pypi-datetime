@@ -14,13 +14,13 @@ Requires: pypi-datetime-license = %{version}-%{release}
 Requires: pypi-datetime-python = %{version}-%{release}
 Requires: pypi-datetime-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pluggy
+BuildRequires : pypi(pluggy)
 BuildRequires : py-python
 BuildRequires : pypi(pytz)
 BuildRequires : pypi(zope.interface)
 BuildRequires : pytest
 BuildRequires : tox
-BuildRequires : virtualenv
+BuildRequires : pypi(virtualenv)
 
 %description
 ====================
