@@ -1,5 +1,5 @@
 PKG_NAME := pypi-datetime
-URL = https://files.pythonhosted.org/packages/5e/93/8d5559da5ccf146f6a4204252ca85b48dd7bf55b32350801a9a9209408c3/DateTime-4.3.tar.gz
+URL = https://files.pythonhosted.org/packages/ab/62/4a898c8e189ef390e11868349c87ef6cf3deb7677c1c1e03ce3a01be760f/DateTime-4.4.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
