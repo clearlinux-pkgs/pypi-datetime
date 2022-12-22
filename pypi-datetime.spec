@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xC1B74D5998A5F657 (jens@plyp.com)
 #
 Name     : pypi-datetime
-Version  : 4.8
-Release  : 25
-URL      : https://files.pythonhosted.org/packages/a1/e6/aa6acc57c4f681907f8bcd629e3b37229b78bbb0bab0180640fb4c2ab6e2/DateTime-4.8.tar.gz
-Source0  : https://files.pythonhosted.org/packages/a1/e6/aa6acc57c4f681907f8bcd629e3b37229b78bbb0bab0180640fb4c2ab6e2/DateTime-4.8.tar.gz
-Source1  : https://files.pythonhosted.org/packages/a1/e6/aa6acc57c4f681907f8bcd629e3b37229b78bbb0bab0180640fb4c2ab6e2/DateTime-4.8.tar.gz.asc
+Version  : 4.9
+Release  : 26
+URL      : https://files.pythonhosted.org/packages/25/c1/26a0e5baee6d98a188cc432253e479e330222e3ac9822637b1c6ecb5b6e9/DateTime-4.9.tar.gz
+Source0  : https://files.pythonhosted.org/packages/25/c1/26a0e5baee6d98a188cc432253e479e330222e3ac9822637b1c6ecb5b6e9/DateTime-4.9.tar.gz
+Source1  : https://files.pythonhosted.org/packages/25/c1/26a0e5baee6d98a188cc432253e479e330222e3ac9822637b1c6ecb5b6e9/DateTime-4.9.tar.gz.asc
 Summary  : An feature extraction algorithm
 Group    : Development/Tools
 License  : ZPL-2.1
@@ -60,10 +60,11 @@ python3 components for the pypi-datetime package.
 
 
 %prep
-%setup -q -n DateTime-4.8
-cd %{_builddir}/DateTime-4.8
+%setup -q -n DateTime-4.9
+cd %{_builddir}/DateTime-4.9
 pushd ..
-cp -a DateTime-4.8 buildavx2
+cp -a DateTime-4.9 buildavx2
+cp -a DateTime-4.9 buildavx512
 popd
 
 %build
@@ -71,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671204821
+export SOURCE_DATE_EPOCH=1671724543
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -84,8 +85,8 @@ export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx"
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
@@ -103,13 +104,13 @@ PYTHONPATH=%{buildroot}$(python -c "import sys; print(sys.path[-1])") python set
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-datetime
-cp %{_builddir}/DateTime-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-datetime/a0b53f43aab58b46bf79ba756c50771c605ab4c5 || :
+cp %{_builddir}/DateTime-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-datetime/a0b53f43aab58b46bf79ba756c50771c605ab4c5
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
 export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
