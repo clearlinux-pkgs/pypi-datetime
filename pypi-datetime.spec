@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xC1B74D5998A5F657 (jens@plyp.com)
 #
 Name     : pypi-datetime
-Version  : 4.9
-Release  : 28
-URL      : https://files.pythonhosted.org/packages/25/c1/26a0e5baee6d98a188cc432253e479e330222e3ac9822637b1c6ecb5b6e9/DateTime-4.9.tar.gz
-Source0  : https://files.pythonhosted.org/packages/25/c1/26a0e5baee6d98a188cc432253e479e330222e3ac9822637b1c6ecb5b6e9/DateTime-4.9.tar.gz
-Source1  : https://files.pythonhosted.org/packages/25/c1/26a0e5baee6d98a188cc432253e479e330222e3ac9822637b1c6ecb5b6e9/DateTime-4.9.tar.gz.asc
+Version  : 5.0
+Release  : 29
+URL      : https://files.pythonhosted.org/packages/95/d6/471334b2dcfbe883edb9f40c7f5266d8cc8f9680247ccd22c92c858692c5/DateTime-5.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/95/d6/471334b2dcfbe883edb9f40c7f5266d8cc8f9680247ccd22c92c858692c5/DateTime-5.0.tar.gz
+Source1  : https://files.pythonhosted.org/packages/95/d6/471334b2dcfbe883edb9f40c7f5266d8cc8f9680247ccd22c92c858692c5/DateTime-5.0.tar.gz.asc
 Summary  : An feature extraction algorithm
 Group    : Development/Tools
 License  : ZPL-2.1
@@ -63,10 +63,10 @@ python3 components for the pypi-datetime package.
 
 
 %prep
-%setup -q -n DateTime-4.9
-cd %{_builddir}/DateTime-4.9
+%setup -q -n DateTime-5.0
+cd %{_builddir}/DateTime-5.0
 pushd ..
-cp -a DateTime-4.9 buildavx2
+cp -a DateTime-5.0 buildavx2
 popd
 
 %build
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672266908
+export SOURCE_DATE_EPOCH=1673540027
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
