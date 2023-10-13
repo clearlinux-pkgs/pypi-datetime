@@ -5,7 +5,7 @@
 #
 Name     : pypi-datetime
 Version  : 5.2
-Release  : 31
+Release  : 32
 URL      : https://files.pythonhosted.org/packages/98/b9/36b541f6bf8955c1d9a8aabd83ec1543365deb79111c6b0b8e4ca6cec9c1/DateTime-5.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/98/b9/36b541f6bf8955c1d9a8aabd83ec1543365deb79111c6b0b8e4ca6cec9c1/DateTime-5.2.tar.gz
 Summary  : This package provides a DateTime data type, as known from Zope. Unless you need to communicate with Zope APIs, you're probably better off using Python's built-in datetime module.
